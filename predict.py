@@ -1,6 +1,7 @@
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+import sys
 
 IMG_SIZE = (128, 128)
 CLASS_NAMES = ["nowildfire", "wildfire"]
@@ -18,8 +19,22 @@ def predict_image(path):
     print(f"Predição: {label} (prob={prob:.3f})")
 
 
+def validate_image(path):
+    try:
+        with Image.open(path) as img:
+            img.verify()
+        return True
+    except (IOError, SyntaxError) as e:
+        print(f"Arquivo inválido: {path}. Erro: {e}")
+        return False
+
+
 # Exemplo
 if __name__ == "__main__":
-    predict_image(
-        "abdelghaniaaba/wildfire-prediction-dataset/versions/1/test/nowildfire/-73.535,45.480806.jpg"
-    )
+    if not len(sys.argv) == 2:
+        print("Uso: python predict.py <caminho_da_imagem>")
+        sys.exit(1)
+    file_path = sys.argv[1]
+    if not validate_image(file_path):
+        sys.exit(1)
+    predict_image(sys.argv[1])

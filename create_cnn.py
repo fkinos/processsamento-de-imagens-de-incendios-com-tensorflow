@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, classification_report
 
 # Caminho principal do dataset
+# Data set baixado de:
+# https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset
 DATA_DIR = "abdelghaniaaba/wildfire-prediction-dataset/versions/1/"
 IMG_SIZE = (128, 128)
 BATCH_SIZE = 32
@@ -87,14 +89,6 @@ AUTOTUNE = tf.data.AUTOTUNE
 train_ds = train_ds.cache().shuffle(1000).prefetch(buffer_size=AUTOTUNE)
 val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
 test_ds = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
-
-# ---------------------- EXPLORAR COM PILLOW ----------------------
-# Mostrar uma imagem exemplo
-# for imgs, labels in train_ds.take(1):
-#     img_array = imgs[0].numpy()
-#     label = int(labels[0])
-#     Image.fromarray((img_array * 255).astype(np.uint8)).show(title=f"Classe: {class_names[label]}")
-#     break
 
 
 # ---------------------- DEFINIR MODELO CNN ----------------------
