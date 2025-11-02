@@ -20,4 +20,4 @@ python main.py
 
 ## Função de perda e Acurácia
 
-<img src='model\relatorio\funcao de perda e acuracia do modelo.png'>
+<img src='src/model/relatorio/funcao de perda e acuracia do modelo.png'>
