@@ -6,14 +6,17 @@ https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset
 
 ## Como utilizar:
 
-Execute:
+Execute em src:
 ``` 
-python predict.py <file_path>
+python main.py 
 ```
 
 ## Dependências
 * Pillow
 * Tensorflow
+* Numpy
+* Sklearn
+* Matplotlib (para gerar os gráficos da Função de perda e Acurácia do modelo)
 
 ## Função de perda e Acurácia
 
