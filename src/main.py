@@ -24,7 +24,7 @@ def select_image():
     if not file_path:
         return
 
-    img = Image.open(file_path).resize((250, 250))
+    img = Image.open(file_path).resize((128, 128))
     img_tk = ImageTk.PhotoImage(img)
 
     if img_label:
